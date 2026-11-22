@@ -1,0 +1,15 @@
+[package]
+name = "edit"
+description = "Decode, transform and encode images: EXIF-corrected open, rotate, resize, crop, undo, save."
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+repository.workspace = true
+authors.workspace = true
+
+[dependencies]
+image.workspace = true
+
+[dev-dependencies]
+image.workspace = true
