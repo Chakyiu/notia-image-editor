@@ -1,6 +1,11 @@
 [workspace]
 resolver = "3"
-members = ["crates/edit"]
+members = [
+    "crates/edit",
+    "crates/edit-cli",
+    "crates/notia-image-editor-plugin",
+]
+default-members = ["crates/edit", "crates/edit-cli"]
 
 [workspace.package]
 version = "0.1.0"
@@ -12,3 +17,4 @@ authors = ["Chakyiu"]
 
 [workspace.dependencies]
 image = { version = "0.25", default-features = false, features = ["png", "jpeg", "webp"] }
+clap = { version = "4", features = ["derive"] }
