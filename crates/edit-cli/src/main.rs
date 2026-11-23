@@ -44,9 +44,7 @@ enum Command {
         height: u32,
     },
     /// Print image dimensions.
-    Info {
-        path: PathBuf,
-    },
+    Info { path: PathBuf },
 }
 
 fn main() -> edit::Result<()> {
@@ -62,12 +60,7 @@ fn main() -> edit::Result<()> {
             let height = height.unwrap_or(0);
             doc.resize(width, height, lock_aspect)?;
             doc.save_as(&path)?;
-            eprintln!(
-                "resized {:?} to {}×{}",
-                path,
-                doc.width(),
-                doc.height()
-            );
+            eprintln!("resized {:?} to {}×{}", path, doc.width(), doc.height());
         }
         Command::Crop {
             path,

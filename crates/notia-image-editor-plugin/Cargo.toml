@@ -17,5 +17,5 @@ notia = ["dep:edit", "dep:notia-plugin", "dep:gpui-kit"]
 [dependencies]
 edit = { path = "../edit", optional = true }
 
-notia-plugin = { path = "../../../notia/crates/notia-plugin", optional = true }
+notia-plugin = { git = "https://github.com/Chakyiu/notia.git", optional = true }
 gpui-kit = { version = "=0.10.0", features = ["tree-sitter-markdown"], optional = true }

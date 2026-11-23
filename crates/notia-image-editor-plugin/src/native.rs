@@ -2,8 +2,8 @@
 
 extern crate gpui_kit as gpui;
 
-use gpui::{App, Window};
 use gpui::component::WindowExt as _;
+use gpui::{App, Window};
 use notia_plugin::{Command, Notia, Plugin, PluginContext, PluginManifest, core::VaultPath};
 
 use crate::image_path::{image_target_from_line, is_supported_image_path};
@@ -15,10 +15,7 @@ fn embedded_image_at_cursor(cx: &App) -> Option<VaultPath> {
     let active = workspace.read(cx).active_note()?;
     let line = active.cursor_line() as usize;
     let text = active.text();
-    let target = text
-        .lines()
-        .nth(line)
-        .and_then(image_target_from_line)?;
+    let target = text.lines().nth(line).and_then(image_target_from_line)?;
     let from = active.path().clone();
     let vault = Notia::vault(cx);
     let resolved = vault.read(cx).index().resolve(&target, Some(&from))?;

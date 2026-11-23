@@ -3961,6 +3961,7 @@ dependencies = [
 [[package]]
 name = "notia-core"
 version = "0.2.13"
+source = "git+https://github.com/Chakyiu/notia.git#aad219d9d337f646979b442340784976ec7a092d"
 dependencies = [
  "serde",
 ]
@@ -3977,6 +3978,7 @@ dependencies = [
 [[package]]
 name = "notia-plugin"
 version = "0.2.13"
+source = "git+https://github.com/Chakyiu/notia.git#aad219d9d337f646979b442340784976ec7a092d"
 dependencies = [
  "anyhow",
  "chrono",
@@ -3993,6 +3995,7 @@ dependencies = [
 [[package]]
 name = "notia-theme"
 version = "0.2.13"
+source = "git+https://github.com/Chakyiu/notia.git#aad219d9d337f646979b442340784976ec7a092d"
 dependencies = [
  "anyhow",
  "gpui-kit",

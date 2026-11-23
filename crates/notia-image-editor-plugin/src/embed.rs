@@ -17,8 +17,7 @@ pub fn encode_base64(bytes: &[u8]) -> String {
 
 // Minimal base64 without extra deps (same alphabet as RFC 4648).
 fn base64_encode(data: &[u8]) -> String {
-    const TABLE: &[u8; 64] =
-        b"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
+    const TABLE: &[u8; 64] = b"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
     let mut out = Vec::with_capacity((data.len() + 2) / 3 * 4);
     for chunk in data.chunks(3) {
         let b0 = chunk[0];
@@ -52,7 +51,10 @@ fn base64_decode(input: &str) -> Option<Vec<u8>> {
             _ => None,
         }
     }
-    let bytes: Vec<u8> = input.bytes().filter(|&b| b != b'=' && !b.is_ascii_whitespace()).collect();
+    let bytes: Vec<u8> = input
+        .bytes()
+        .filter(|&b| b != b'=' && !b.is_ascii_whitespace())
+        .collect();
     let mut out = Vec::with_capacity(bytes.len() / 4 * 3);
     for chunk in bytes.chunks(4) {
         if chunk.len() < 2 {
@@ -62,7 +64,10 @@ fn base64_decode(input: &str) -> Option<Vec<u8>> {
         let b = val(chunk[1])?;
         let c = chunk.get(2).and_then(|&x| val(x));
         let d = chunk.get(3).and_then(|&x| val(x));
-        let n = (a as u32) << 18 | (b as u32) << 12 | c.map(|x| x as u32).unwrap_or(0) << 6 | d.map(|x| x as u32).unwrap_or(0);
+        let n = (a as u32) << 18
+            | (b as u32) << 12
+            | c.map(|x| x as u32).unwrap_or(0) << 6
+            | d.map(|x| x as u32).unwrap_or(0);
         out.push((n >> 16) as u8);
         if c.is_some() {
             out.push((n >> 8) as u8);
