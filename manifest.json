@@ -1,0 +1,8 @@
+{
+  "id": "notia-image-editor",
+  "name": "Image Editor",
+  "version": "0.1.0",
+  "author": "Chakyiu",
+  "description": "Crop and resize images embedded in notes (png/jpeg/webp). Uses the edit library; pair with the native companion for in-app edits.",
+  "main": "main.js"
+}

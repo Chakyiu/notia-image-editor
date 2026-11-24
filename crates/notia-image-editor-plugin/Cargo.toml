@@ -1,0 +1,21 @@
+[package]
+name = "notia-image-editor-plugin"
+description = "Notia native plugin: crop and resize embedded vault images via the edit crate."
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+repository.workspace = true
+authors.workspace = true
+publish = false
+
+[features]
+default = []
+# Build against a local Notia checkout (`NOTIA_DIR` or `../notia`).
+notia = ["dep:edit", "dep:notia-plugin", "dep:gpui-kit"]
+
+[dependencies]
+edit = { path = "../edit", optional = true }
+
+notia-plugin = { git = "https://github.com/Chakyiu/notia.git", optional = true }
+gpui-kit = { version = "=0.10.0", features = ["tree-sitter-markdown"], optional = true }

@@ -1,0 +1,17 @@
+[package]
+name = "edit-cli"
+description = "CLI for crop and resize using the edit crate (vault paths on disk)."
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+repository.workspace = true
+authors.workspace = true
+
+[[bin]]
+name = "notia-image-editor"
+path = "src/main.rs"
+
+[dependencies]
+clap.workspace = true
+edit = { path = "../edit" }
